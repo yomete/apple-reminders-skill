@@ -1,6 +1,6 @@
 # Apple Reminders Skill
 
-A small Codex skill for reading and triaging local Apple Reminders through the `remindctl` CLI.
+A small skill for Codex or any compatible AI agent harness to read and triage local Apple Reminders through the `remindctl` CLI.
 
 The skill is intentionally narrow:
 
@@ -13,13 +13,15 @@ The skill is intentionally narrow:
 
 ## Install
 
-Clone this repository into your Codex skills directory:
+For Codex, clone this repository into your skills directory:
 
 ```bash
 git clone https://github.com/yomete/apple-reminders-skill.git ~/.codex/skills/apple-reminders
 ```
 
 Restart Codex or reload skills if needed.
+
+For another AI agent or harness, use `SKILL.md` as the instruction file and make sure the harness can run `remindctl` locally.
 
 ## Dependency
 
@@ -38,7 +40,7 @@ If Reminders access is not authorized, run:
 remindctl doctor --for-agent
 ```
 
-The agent should report the exact `status` and `doctor` output so you know which macOS permission needs fixing.
+Codex or the active agent harness should report the exact `status` and `doctor` output so you know which macOS permission needs fixing.
 
 ## Example prompts
 
@@ -60,7 +62,7 @@ Complete the reminder with id E6265F26-E929-4861-92F8-15F8A2C16B3B.
 
 ## Safety
 
-The skill tells the agent to prefer read-only commands. Creation, edits, completion, and deletion should only happen when the user explicitly requests them.
+The skill tells Codex or the active agent harness to prefer read-only commands. Creation, edits, completion, and deletion should only happen when the user explicitly requests them.
 
 When a reminder must be changed, the agent should use stable reminder IDs from JSON output instead of numeric indexes.
 

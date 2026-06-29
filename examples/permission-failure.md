@@ -19,5 +19,5 @@ Apple Reminders access is unavailable.
 `remindctl doctor --for-agent`:
 ...
 
-Fix: grant Reminders access to the terminal/app running Codex in macOS Privacy & Security settings, then retry.
+Fix: grant Reminders access to the terminal or app running Codex, or your active AI agent harness, in macOS Privacy & Security settings, then retry.
 ```
