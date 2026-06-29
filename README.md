@@ -1,6 +1,6 @@
-# Apple Reminders Skill
+# Apple Reminders Agent Skill
 
-A small skill for Codex or any compatible AI agent harness to read and triage local Apple Reminders through the `remindctl` CLI.
+A small [Agent Skills](https://agentskills.io/) package for reading and triaging local Apple Reminders through the `remindctl` CLI.
 
 The skill is intentionally narrow:
 
@@ -13,15 +13,21 @@ The skill is intentionally narrow:
 
 ## Install
 
-For Codex, clone this repository into your skills directory:
+Install it in any Agent Skills-compatible harness by placing this repository where that harness discovers skill folders.
+
+Common locations:
 
 ```bash
-git clone https://github.com/yomete/apple-reminders-skill.git ~/.codex/skills/apple-reminders
+# OpenAI Codex, Cursor, pi, and other harnesses that read the shared Agent Skills folder
+git clone https://github.com/yomete/apple-reminders-skill.git ~/.agents/skills/apple-reminders
+
+# Claude Code
+git clone https://github.com/yomete/apple-reminders-skill.git ~/.claude/skills/apple-reminders
 ```
 
-Restart Codex or reload skills if needed.
+Then restart or reload your agent if it does not pick up the new skill automatically.
 
-For another AI agent or harness, use `SKILL.md` as the instruction file and make sure the harness can run `remindctl` locally.
+See [agent installation notes](docs/agent-installation.md) for Claude, Claude Code, Cursor, Codex, pi, and generic harnesses.
 
 ## Dependency
 
@@ -40,7 +46,7 @@ If Reminders access is not authorized, run:
 remindctl doctor --for-agent
 ```
 
-Codex or the active agent harness should report the exact `status` and `doctor` output so you know which macOS permission needs fixing.
+The active agent harness should report the exact `status` and `doctor` output so you know which macOS permission needs fixing.
 
 ## Example prompts
 
@@ -62,7 +68,7 @@ Complete the reminder with id E6265F26-E929-4861-92F8-15F8A2C16B3B.
 
 ## Safety
 
-The skill tells Codex or the active agent harness to prefer read-only commands. Creation, edits, completion, and deletion should only happen when the user explicitly requests them.
+The skill tells the active agent harness to prefer read-only commands. Creation, edits, completion, and deletion should only happen when the user explicitly requests them.
 
 When a reminder must be changed, the agent should use stable reminder IDs from JSON output instead of numeric indexes.
 
